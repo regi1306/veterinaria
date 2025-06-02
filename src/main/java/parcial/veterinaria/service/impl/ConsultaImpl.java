@@ -20,6 +20,12 @@ public class ConsultaImpl implements IConsulta {
     }
 
     @Override
+    public List<ConsultaEntity> findByMotivo(String motivo) {
+        return consultaRepository.findByMotivo(motivo);
+    }
+
+
+    @Override
     public ConsultaEntity save(ConsultaEntity consulta) {
         return consultaRepository.save(consulta);
     }

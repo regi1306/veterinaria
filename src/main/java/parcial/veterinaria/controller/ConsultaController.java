@@ -27,4 +27,12 @@ public class ConsultaController {
     public ConsultaEntity saveConsulta(@RequestBody ConsultaEntity consulta) {
         return iconsulta.save(consulta);
     }
+
+    @Transactional(readOnly = true)
+    @GetMapping("/ConsultaMotivo/{motivo}")
+    public List<ConsultaEntity> findConsultaByMotivo(@PathVariable("motivo") String motivo) {
+        return iconsulta.findByMotivo(motivo);
+    }
+
+
 }
