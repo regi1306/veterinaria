@@ -9,23 +9,22 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "cliente")
-
 public class ClienteEntity {
+
     @Id
-    @Column(columnDefinition = "INT", name = "id_cliente")
+    @Column(name = "id_cliente", columnDefinition = "INT")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCliente;
 
-    @Column(columnDefinition = "VARCHAR(100)")
+    @Column(name = "nombre", columnDefinition = "VARCHAR(100)")
     private String nombre;
 
-    @Column(columnDefinition = "VARCHAR(9)")
+    @Column(name = "telefono", columnDefinition = "VARCHAR(9)")
     private String telefono;
 
-    @Column(columnDefinition = "VARCHAR(100)")
+    @Column(name = "correo", columnDefinition = "VARCHAR(100)")
     private String correo;
 
-    @Column(columnDefinition = "VARCHAR(150)")
+    @Column(name = "direccion", columnDefinition = "VARCHAR(150)")
     private String direccion;
-
 }

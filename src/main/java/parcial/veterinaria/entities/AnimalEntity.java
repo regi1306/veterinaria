@@ -3,7 +3,6 @@ package parcial.veterinaria.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 @Setter
 @Getter
 @AllArgsConstructor
@@ -12,35 +11,31 @@ import lombok.*;
 @Table(name = "animal")
 public class AnimalEntity {
 
-
     @Id
-    @Column(columnDefinition = "INT", name = "id_animal")
+    @Column(name = "id_animal", columnDefinition = "INT")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAnimal;
 
-    @Column(columnDefinition = "VARCHAR(50)")
-    private String nombre_mascota;
+    @Column(name = "nombreMascota", columnDefinition = "VARCHAR(50)")
+    private String nombreMascota;
 
-    @Column(columnDefinition = "VARCHAR(50)")
+    @Column(name = "especie", columnDefinition = "VARCHAR(50)")
     private String especie;
 
-    @Column(columnDefinition = "VARCHAR(50)")
+    @Column(name = "raza", columnDefinition = "VARCHAR(50)")
     private String raza;
 
-    @Column(columnDefinition = "INT")
+    @Column(name = "edad", columnDefinition = "INT")
     private int edad;
 
-    @Column(columnDefinition = "FLOAT")
+    @Column(name = "peso", columnDefinition = "FLOAT")
     private float peso;
 
-    @Column(columnDefinition = "TEXT", name = "condiciones_medicas")
-    private String condiciones_medicas;
+    @Column(name = "condicionesMedicas", columnDefinition = "TEXT")
+    private String condicionesMedicas;
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     private ClienteEntity cliente;
-
-
 }
-
 
