@@ -12,6 +12,7 @@ import lombok.*;
 @Table(name = "animal")
 public class AnimalEntity {
 
+
     @Id
     @Column(columnDefinition = "INT", name = "id_animal")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
