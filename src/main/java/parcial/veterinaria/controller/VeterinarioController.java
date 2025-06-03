@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import parcial.veterinaria.entities.VeterinarioEntity;
+import parcial.veterinaria.entities.dto.VeterinarioDto;
 import parcial.veterinaria.service.IVeterinario;
 
 import java.util.List;
@@ -26,6 +27,11 @@ public class VeterinarioController {
     @PostMapping("/veterinarios")
     public VeterinarioEntity saveAnimal(@RequestBody VeterinarioEntity veterinario) {
         return iveterinario.save(veterinario);
+    }
+    @Transactional(readOnly = true)
+    @GetMapping("/veterinarios/dto")
+    public List<VeterinarioDto> obtenerVeterinariosDto() {
+        return  iveterinario.obtenerVeterinariosDto();
     }
 
 }
