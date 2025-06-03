@@ -1,3 +1,4 @@
+
 package parcial.veterinaria.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,3 +16,4 @@ public interface ConsultaRepository extends JpaRepository<ConsultaEntity, Long> 
     List<ConsultaEntity> findByMotivo(@Param("motivo") String motivo);
 
 }
+
