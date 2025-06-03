@@ -12,8 +12,9 @@ import java.util.List;
 public interface AnimalRepository extends JpaRepository<AnimalEntity, Long> {
 
     @Query("SELECT new parcial.veterinaria.entities.dto.AnimalDto(" +
-            "a.nombre_mascota, a.especie, a.raza, c.nombre) " +
+            "a.nombreMascota, a.especie, a.raza, c.nombre) " +
             "FROM AnimalEntity a JOIN a.cliente c")
     List<AnimalDto> obtenerAnimalesConDueños();
+
 }
 
