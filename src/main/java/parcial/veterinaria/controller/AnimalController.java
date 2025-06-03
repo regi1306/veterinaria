@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import parcial.veterinaria.entities.AnimalEntity;
-import parcial.veterinaria.entities.dto.AnimalDto;
 import parcial.veterinaria.service.IAnimal;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/process")
+
 public class AnimalController {
 
     @Autowired
@@ -28,14 +28,7 @@ public class AnimalController {
         return iAnimal.save(animal);
     }
 
-    // 🔽 Nuevo endpoint con el DTO
-    @Transactional(readOnly = true)
-    @GetMapping("/animales/dto")
-    public List<AnimalDto> getAnimalesConDueños() {
-        return iAnimal.obtenerAnimalesConDueños();
-    }
 }
-
 
 
 

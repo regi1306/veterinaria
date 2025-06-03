@@ -3,7 +3,6 @@ package parcial.veterinaria.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import parcial.veterinaria.entities.AnimalEntity;
-import parcial.veterinaria.entities.dto.AnimalDto;
 import parcial.veterinaria.repository.AnimalRepository;
 import parcial.veterinaria.service.IAnimal;
 
@@ -23,10 +22,5 @@ public class AnimalImpl implements IAnimal {
     @Override
     public AnimalEntity save(AnimalEntity animal) {
         return animalRepository.save(animal);
-    }
-
-    @Override
-    public List<AnimalDto> obtenerAnimalesConDueños() {
-        return animalRepository.obtenerAnimalesConDueños();
     }
 }
