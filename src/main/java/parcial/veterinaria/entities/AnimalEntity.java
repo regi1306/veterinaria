@@ -12,26 +12,26 @@ import lombok.*;
 public class AnimalEntity {
 
     @Id
-    @Column(name = "id_animal")
+    @Column(name = "id_animal", columnDefinition = "INT")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAnimal;
 
-    @Column(name = "nombre_mascota")
+    @Column(name = "nombreMascota", columnDefinition = "VARCHAR(50)")
     private String nombreMascota;
 
-    @Column(name = "especie")
+    @Column(name = "especie", columnDefinition = "VARCHAR(50)")
     private String especie;
 
-    @Column(name = "raza")
+    @Column(name = "raza", columnDefinition = "VARCHAR(50)")
     private String raza;
 
-    @Column(name = "edad")
+    @Column(name = "edad", columnDefinition = "INT")
     private int edad;
 
-    @Column(name = "peso")
+    @Column(name = "peso", columnDefinition = "FLOAT")
     private float peso;
 
-    @Column(name = "condiciones_medicas")
+    @Column(name = "condicionesMedicas", columnDefinition = "TEXT")
     private String condicionesMedicas;
 
     @ManyToOne
