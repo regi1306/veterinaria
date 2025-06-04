@@ -11,7 +11,7 @@ public class AnimalDto {
         this.especie = especie;
         this.raza = raza;
         this.nombreCliente = nombreCliente;
-}
+    }
 
     public String getNombreMascota() {
         return nombreMascota;
@@ -44,6 +44,5 @@ public class AnimalDto {
     public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
     }
-
 }
 

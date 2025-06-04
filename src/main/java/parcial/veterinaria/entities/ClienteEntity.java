@@ -12,19 +12,20 @@ import lombok.*;
 public class ClienteEntity {
 
     @Id
-    @Column(name = "id_cliente", columnDefinition = "INT")
+    @Column(name = "id_cliente")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCliente;
 
-    @Column(name = "nombre", columnDefinition = "VARCHAR(100)")
+    @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "telefono", columnDefinition = "VARCHAR(9)")
+    @Column(name = "telefono")
     private String telefono;
 
-    @Column(name = "correo", columnDefinition = "VARCHAR(100)")
+    @Column(name = "correo")
     private String correo;
 
-    @Column(name = "direccion", columnDefinition = "VARCHAR(150)")
+    @Column(name = "direccion")
     private String direccion;
 }
+

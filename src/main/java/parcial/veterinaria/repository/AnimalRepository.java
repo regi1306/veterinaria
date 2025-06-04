@@ -15,6 +15,6 @@ public interface AnimalRepository extends JpaRepository<AnimalEntity, Long> {
             "a.nombreMascota, a.especie, a.raza, c.nombre) " +
             "FROM AnimalEntity a JOIN a.cliente c")
     List<AnimalDto> obtenerAnimalesConDueños();
-
 }
+
 
