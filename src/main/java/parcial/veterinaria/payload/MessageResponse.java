@@ -1,4 +1,4 @@
-package parcial.veterinaria.entities.dto;
+package parcial.veterinaria.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

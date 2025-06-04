@@ -1,13 +1,19 @@
 package parcial.veterinaria.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
 import parcial.veterinaria.entities.AnimalEntity;
 import parcial.veterinaria.entities.dto.AnimalDto;
+import parcial.veterinaria.payload.MessageResponse;
 import parcial.veterinaria.service.IAnimal;
-import org.springframework.http.ResponseEntity;
-import parcial.veterinaria.entities.dto.MessageResponse;
+
+import java.util.Optional;
+
+
 
 
 
@@ -40,8 +46,15 @@ public class AnimalController {
 
     @Transactional(readOnly = true)
     @GetMapping("/animales/{id}")
-    public AnimalEntity getAnimalById(@PathVariable Long id) {
-        return iAnimal.findById(id);
+    public ResponseEntity<?> getAnimalById(@PathVariable Long id) {
+        Optional<AnimalEntity> animal = Optional.ofNullable(iAnimal.findById(id));
+
+        if (animal.isPresent()) {
+            return ResponseEntity.ok(animal.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new MessageResponse("No se encontró el animal con ID " + id));
+        }
     }
 
 
@@ -54,10 +67,20 @@ public class AnimalController {
     @Transactional
     @DeleteMapping("/animales/{id}")
     public ResponseEntity<MessageResponse> deleteAnimal(@PathVariable Long id) {
-        iAnimal.delete(id);
-        MessageResponse response = new MessageResponse("Animal eliminado correctamente");
-        return ResponseEntity.ok(response);
+        Optional<AnimalEntity> animal = Optional.ofNullable(iAnimal.findById(id));
+
+        if (animal.isPresent()) {
+            iAnimal.delete(id);
+            return ResponseEntity.ok(new MessageResponse("Animal eliminado correctamente"));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new MessageResponse("No se encontró un animal con ID " + id));
+        }
     }
+
+
+
+
 
 }
 
