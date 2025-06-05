@@ -1,4 +1,5 @@
 🐾 API REST para Gestión de Veterinaria 🐾
+
 Este proyecto es una guía básica para la implementación de una API REST con Java y Spring Boot, enfocada en estudiantes que desean comprender la arquitectura REST, 
 el uso de Spring Boot y la interacción con bases de datos relacionales mediante MySQL.
 
