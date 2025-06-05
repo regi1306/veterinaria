@@ -258,11 +258,11 @@ En Postman se obtiene los datos de cada tabla hacienda GET con http://localhost:
  ![image](https://github.com/user-attachments/assets/5cb5a21e-b737-411c-9e95-e3032dac7c90)
 
 
-- [•	GET http://localhost:8080/process/consultas
-- [•	GET http://localhost:8080/process/veterinarios 
-- [•	GET http://localhost:8080/process/consultorios 
-- [•	GET http://localhost:8080/process/clientes 
-- [•	GET http://localhost:8080/process/animales 
+* -->	GET http://localhost:8080/process/consultas
+* -->	GET http://localhost:8080/process/veterinarios 
+* -->	GET http://localhost:8080/process/consultorios 
+* -->	GET http://localhost:8080/process/clientes 
+* -->	GET http://localhost:8080/process/animales 
 
 Para POST se usa el mismo link, pero antes agregar esto en Headers:
  ![image](https://github.com/user-attachments/assets/b027d166-0402-4c9a-80de-d32ef71c5b0c)
@@ -278,11 +278,15 @@ Ejemplo en Consultorio:
 Esa es la estructura en el Body, no se pone id porque se genera automático, después de agregar los datos nuevos le damos a SEND y vemos abajo que se guardó, si hacemos de nuevo un GET ya nos saldrían todos los datos más el nuevo que acabamos de agregar.
 
 GET con DTO:
-http://localhost:8080/process/veterinarios/dto
-http://localhost:8080/process/consultas/dto
-http://localhost:8080/process/animales/dto
+* -->http://localhost:8080/process/veterinarios/dto
+  
+* -->http://localhost:8080/process/consultas/dto
+  
+* -->http://localhost:8080/process/animales/dto
 
 📘 Documentación Adicional
 •	Documentación de Spring Boot
+
 •	Documentación de MySQL
+
 •	Guía de Postman
