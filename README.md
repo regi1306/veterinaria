@@ -1,12 +1,13 @@
-# 🐾 API REST para Gestión de Veterinaria 🐾
+## 🐾 API REST para Gestión de Veterinaria 🐾
 
 Este proyecto es una guía básica para la implementación de una API REST con Java y Spring Boot, enfocada en estudiantes que desean comprender la arquitectura REST, 
 el uso de Spring Boot y la interacción con bases de datos relacionales mediante MySQL.
 
 
-📌 Descripción General
+#📌 Descripción General
 Sistema de gestión para una veterinaria que permite administrar veterinarios, especialidades, mascotas, clientes, consultas, etc. 
 La aplicación se construyó usando Spring Boot y se prueba mediante Postman con persistencia en MySQL, utilizando XAMPP como servidor local.
+
 
 
 
@@ -29,18 +30,18 @@ Postman	Actual	Testing de endpoints
 •	IntelliJ IDEA
 
 
-  Paso 1: Iremos a crear nuestro proyecto base en el tercer enlace provisto anteriormente,
+ - [ Paso 1: Iremos a crear nuestro proyecto base en el tercer enlace provisto anteriormente,
  debemos agregar las siguientes dependencias (la dependencia de MySQL Driver cambiará si utiliza un gestor de base de datos diferente)
  
 ![image](https://github.com/user-attachments/assets/3831d340-cbf4-4fdf-9959-62cdb5d7e0eb)
 
-Paso 2: Luego de haber dado GENERATE, procedemos a buscar el archivo en nuestro directorio seleccionado (por defecto será en descargas), 
+- [Paso 2: Luego de haber dado GENERATE, procedemos a buscar el archivo en nuestro directorio seleccionado (por defecto será en descargas), 
 extraemos el .zip que nos dejará listo el proyecto base para poder empezar nuestro desarrollo.
  
 ![image](https://github.com/user-attachments/assets/7c05b6c9-146c-4fee-be7f-e3c868da2308)
 
 
-Paso 3: Abrimos nuestro proyecto desde IntelliJ IDEA.
+- [Paso 3: Abrimos nuestro proyecto desde IntelliJ IDEA.
  
 ![image](https://github.com/user-attachments/assets/cdcf52e3-5470-47a5-8747-c7f2d01540b6)
 
@@ -52,8 +53,8 @@ Paso 3: Abrimos nuestro proyecto desde IntelliJ IDEA.
 El sistema utiliza una base de datos relacional desarrollada en MySQL.
 A continuación, se detalla la estructura de las tablas y algunos datos de ejemplo insertados para fines de pruebas y desarrollo.
 
-1.	Iniciar el servicio MySQL desde XAMPP.
-2.	Crear una base de datos llamada veterinaria
+- [1.	Iniciar el servicio MySQL desde XAMPP.
+- [2.	Crear una base de datos llamada veterinaria
 
 CREATE DATABASE IF NOT EXISTS veterinaria;
 USE veterinaria;
@@ -230,12 +231,13 @@ Implementa las operaciones CRUD, además de una función para obtener animales c
 🌐 Controlador REST: AnimalController
 Define los endpoints HTTP para acceder y gestionar los animales. Está ubicado en la ruta base /process.
 Método	Ruta	Descripción
-GET	/process/animales	Lista todos los animales.
-POST	/process/animales	Crea un nuevo animal.
-GET	/process/animales/dto	Lista animales con nombre de sus dueños.
-GET	/process/animales/{id}	Busca un animal por su ID.
-PUT	/process/animales/{id}	Actualiza un animal por ID.
-DELETE	/process/animales/{id}	Elimina un animal por ID.
+- [GET	/process/animales	Lista todos los animales.
+- [POST	/process/animales	Crea un nuevo animal.
+- [GET	/process/animales/dto	Lista animales con nombre de sus dueños.
+- [GET	/process/animales/{id}	Busca un animal por su ID.
+- [PUT	/process/animales/{id}	Actualiza un animal por ID.
+- [DELETE	/process/animales/{id}	Elimina un animal por ID.
+  
 Respuestas personalizadas:
 •	Cuando no se encuentra un animal, se devuelve un objeto MessageResponse con el mensaje de error.
 
@@ -243,9 +245,9 @@ Respuestas personalizadas:
 
 
 🖱️ Ejecución de la API
-1.	Abrí el proyecto con IntelliJ.
-2.	Ejecutá la clase principal VeterinariaApplication.java.
-3.	Usá Postman para probar los endpoints disponibles de la API REST.
+- [1.	Abrí el proyecto con IntelliJ.
+- [2.	Ejecutá la clase principal VeterinariaApplication.java.
+- [3.	Usá Postman para probar los endpoints disponibles de la API REST.
 
 
 💻 Ejemplos de Endpoints con Postman
@@ -256,11 +258,11 @@ En Postman se obtiene los datos de cada tabla hacienda GET con http://localhost:
  ![image](https://github.com/user-attachments/assets/5cb5a21e-b737-411c-9e95-e3032dac7c90)
 
 
-•	GET http://localhost:8080/process/consultas
-•	GET http://localhost:8080/process/veterinarios 
-•	GET http://localhost:8080/process/consultorios 
-•	GET http://localhost:8080/process/clientes 
-•	GET http://localhost:8080/process/animales 
+- [•	GET http://localhost:8080/process/consultas
+- [•	GET http://localhost:8080/process/veterinarios 
+- [•	GET http://localhost:8080/process/consultorios 
+- [•	GET http://localhost:8080/process/clientes 
+- [•	GET http://localhost:8080/process/animales 
 
 Para POST se usa el mismo link, pero antes agregar esto en Headers:
  ![image](https://github.com/user-attachments/assets/b027d166-0402-4c9a-80de-d32ef71c5b0c)
@@ -269,6 +271,7 @@ En Key: Content-Type y en Value: application/json
 Luego irse a Body y a raw
 Y ahí escribir lo que se agregara usando POST,
 Ejemplo en Consultorio:
+
 ![image](https://github.com/user-attachments/assets/b1b080db-c692-4ae1-af21-f57fabf8d574)
 
  
