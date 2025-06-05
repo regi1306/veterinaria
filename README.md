@@ -1,11 +1,12 @@
-🐾 API REST para Gestión de Veterinaria
+🐾 API REST para Gestión de Veterinaria 🐾
 Este proyecto es una guía básica para la implementación de una API REST con Java y Spring Boot, enfocada en estudiantes que desean comprender la arquitectura REST, 
 el uso de Spring Boot y la interacción con bases de datos relacionales mediante MySQL.
-__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 📌 Descripción General
 Sistema de gestión para una veterinaria que permite administrar veterinarios, especialidades, mascotas, clientes, consultas, etc. 
 La aplicación se construyó usando Spring Boot y se prueba mediante Postman con persistencia en MySQL, utilizando XAMPP como servidor local.
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
 🛠️ Herramientas Utilizadas
 Tecnología	Versión	Uso Principal
 Java	17+	Lenguaje de programación
@@ -14,7 +15,7 @@ IntelliJ IDEA	Community	IDE de desarrollo
 MySQL	8+	SGDB para almacenamiento
 XAMPP	Última	Servidor local que incluye MySQL
 Postman	Actual	Testing de endpoints
-________________________________________
+
 🔧 Instalación y Configuración
 1. Instalación de Herramientas
 •	XAMPP (MySQL)
@@ -22,20 +23,21 @@ ________________________________________
 •	Spring Initializr
 •	IntelliJ IDEA
 
-2.  Iremos a crear nuestro proyecto base en el tercer enlace provisto anteriormente,
+2.
+  Paso 1: Iremos a crear nuestro proyecto base en el tercer enlace provisto anteriormente,
  debemos agregar las siguientes dependencias (la dependencia de MySQL Driver cambiará si utiliza un gestor de base de datos diferente)
  
 ![image](https://github.com/user-attachments/assets/3831d340-cbf4-4fdf-9959-62cdb5d7e0eb)
 
 Paso 2: Luego de haber dado GENERATE, procedemos a buscar el archivo en nuestro directorio seleccionado (por defecto será en descargas), extraemos el .zip que nos dejará listo el proyecto base para poder empezar nuestro desarrollo.
  
-
+![image](https://github.com/user-attachments/assets/7c05b6c9-146c-4fee-be7f-e3c868da2308)
 
 
 Paso 3: Abrimos nuestro proyecto desde IntelliJ IDEA.
  
+![image](https://github.com/user-attachments/assets/cdcf52e3-5470-47a5-8747-c7f2d01540b6)
 
-Estructura de paquetes 
  
 
 📂 Estructura del Proyecto
@@ -98,7 +100,8 @@ correo VARCHAR(100),
 telefono VARCHAR(9),
 horario_atencion VARCHAR(150)
 );
-Datos de Prueba Insertados
+
+📋 Datos de Prueba Insertados
 Se incluyen datos de ejemplo para pruebas iniciales:
 •	Veterinarios: 10 registros con distintas especialidades.
 •	Consultas: 10 registros asociando veterinarios con animales.
@@ -171,9 +174,11 @@ SHOW TABLES;
 
 3.	Configurar las credenciales en el archivo application.properties:
 
- 
+ ![image](https://github.com/user-attachments/assets/bd95f6fa-7247-4907-ad90-053e79c5cfe0)
+
 
 🐾 Gestión de Animales
+
 📦 Entidad: AnimalEntity
 Esta clase representa a los animales registrados en la veterinaria. Contiene los datos relevantes sobre cada mascota, incluyendo su relación con el cliente dueño del animal.
 Atributos:
@@ -185,20 +190,22 @@ Atributos:
 •	peso: Peso en kilogramos.
 •	condicionesMedicas: Condiciones médicas relevantes.
 •	cliente: Relación con el propietario (cliente), asociada con @ManyToOne.
-________________________________________
+
 📤 DTOs
 •	AnimalDto: Objeto de transferencia que muestra una vista simplificada del animal con el nombre del cliente.
 o	Campos: nombreMascota, especie, raza, nombreCliente.
 •	AnimalRequestDto: DTO de solicitud para registrar o actualizar animales.
 o	Campos: nombreMascota, especie, raza, edad, peso, condicionesMedicas, idCliente.
-________________________________________
+
+
 🗃️ Repositorio: AnimalRepository
 Extiende JpaRepository<AnimalEntity, Long>, permitiendo el uso de métodos CRUD predefinidos y define una consulta personalizada:
 @Query("SELECT new parcial.veterinaria.entities.dto.AnimalDto(" +
        "a.nombreMascota, a.especie, a.raza, c.nombre) " +
        "FROM AnimalEntity a JOIN a.cliente c")
 List<AnimalDto> obtenerAnimalesConDueños();
-________________________________________
+
+
 🧠 Service
 Interfaz: IAnimal
 List<AnimalEntity> findAll();
@@ -209,7 +216,8 @@ void delete(Long id);
 List<AnimalDto> obtenerAnimalesConDueños();
 Implementación: AnimalImpl
 Implementa las operaciones CRUD, además de una función para obtener animales con sus dueños. Verifica si los registros existen antes de actualizarlos o eliminarlos.
-________________________________________
+
+
 🌐 Controlador REST: AnimalController
 Define los endpoints HTTP para acceder y gestionar los animales. Está ubicado en la ruta base /process.
 Método	Ruta	Descripción
@@ -222,23 +230,22 @@ DELETE	/process/animales/{id}	Elimina un animal por ID.
 Respuestas personalizadas:
 •	Cuando no se encuentra un animal, se devuelve un objeto MessageResponse con el mensaje de error.
 
-________________________________________
-📘 Documentación Adicional
-•	Documentación de Spring Boot
-•	Documentación de MySQL
-•	Guía de Postman
-________________________________________
 
-▶️ Ejecución de la API
+
+
+🖱️ Ejecución de la API
 1.	Abrí el proyecto con IntelliJ.
 2.	Ejecutá la clase principal VeterinariaApplication.java.
 3.	Usá Postman para probar los endpoints disponibles de la API REST.
 
-________________________________________
-🧪 Ejemplos de Endpoints con Postman
+
+💻 Ejemplos de Endpoints con Postman
 El GET sirve para obtener todos los datos de una table, en nuestro proyecto tenemos 5 tablas: Animal, Consultorio, Cliente, Consulta y Veterinario.
+
 En Postman se obtiene los datos de cada tabla hacienda GET con http://localhost:8080/process/ y el nombre que le hemos puesto en el @GetMapping y @PostMapping
- 
+
+ ![image](https://github.com/user-attachments/assets/5cb5a21e-b737-411c-9e95-e3032dac7c90)
+
 
 •	GET http://localhost:8080/process/consultas
 •	GET http://localhost:8080/process/veterinarios 
@@ -247,11 +254,13 @@ En Postman se obtiene los datos de cada tabla hacienda GET con http://localhost:
 •	GET http://localhost:8080/process/animales 
 
 Para POST se usa el mismo link, pero antes agregar esto en Headers:
- 
+ ![image](https://github.com/user-attachments/assets/b027d166-0402-4c9a-80de-d32ef71c5b0c)
+
 En Key: Content-Type y en Value: application/json
 Luego irse a Body y a raw
 Y ahí escribir lo que se agregara usando POST,
 Ejemplo en Consultorio:
+![image](https://github.com/user-attachments/assets/b1b080db-c692-4ae1-af21-f57fabf8d574)
 
  
 Esa es la estructura en el Body, no se pone id porque se genera automático, después de agregar los datos nuevos le damos a SEND y vemos abajo que se guardó, si hacemos de nuevo un GET ya nos saldrían todos los datos más el nuevo que acabamos de agregar.
@@ -261,3 +270,7 @@ http://localhost:8080/process/veterinarios/dto
 http://localhost:8080/process/consultas/dto
 http://localhost:8080/process/animales/dto
 
+📘 Documentación Adicional
+•	Documentación de Spring Boot
+•	Documentación de MySQL
+•	Guía de Postman
