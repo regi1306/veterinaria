@@ -1,11 +1,13 @@
-🐾 API REST para Gestión de Veterinaria 🐾
+                                                    🐾 API REST para Gestión de Veterinaria 🐾
 
 Este proyecto es una guía básica para la implementación de una API REST con Java y Spring Boot, enfocada en estudiantes que desean comprender la arquitectura REST, 
 el uso de Spring Boot y la interacción con bases de datos relacionales mediante MySQL.
 
+
 📌 Descripción General
 Sistema de gestión para una veterinaria que permite administrar veterinarios, especialidades, mascotas, clientes, consultas, etc. 
 La aplicación se construyó usando Spring Boot y se prueba mediante Postman con persistencia en MySQL, utilizando XAMPP como servidor local.
+
 
 
 🛠️ Herramientas Utilizadas
@@ -17,6 +19,8 @@ MySQL	8+	SGDB para almacenamiento
 XAMPP	Última	Servidor local que incluye MySQL
 Postman	Actual	Testing de endpoints
 
+
+
 🔧 Instalación y Configuración
 1. Instalación de Herramientas
 •	XAMPP (MySQL)
@@ -24,13 +28,14 @@ Postman	Actual	Testing de endpoints
 •	Spring Initializr
 •	IntelliJ IDEA
 
-2.
+
   Paso 1: Iremos a crear nuestro proyecto base en el tercer enlace provisto anteriormente,
  debemos agregar las siguientes dependencias (la dependencia de MySQL Driver cambiará si utiliza un gestor de base de datos diferente)
  
 ![image](https://github.com/user-attachments/assets/3831d340-cbf4-4fdf-9959-62cdb5d7e0eb)
 
-Paso 2: Luego de haber dado GENERATE, procedemos a buscar el archivo en nuestro directorio seleccionado (por defecto será en descargas), extraemos el .zip que nos dejará listo el proyecto base para poder empezar nuestro desarrollo.
+Paso 2: Luego de haber dado GENERATE, procedemos a buscar el archivo en nuestro directorio seleccionado (por defecto será en descargas), 
+extraemos el .zip que nos dejará listo el proyecto base para poder empezar nuestro desarrollo.
  
 ![image](https://github.com/user-attachments/assets/7c05b6c9-146c-4fee-be7f-e3c868da2308)
 
@@ -44,12 +49,15 @@ Paso 3: Abrimos nuestro proyecto desde IntelliJ IDEA.
 📂 Estructura del Proyecto
 
 3. Configurar la Base de Datos: Veterinaria
-El sistema utiliza una base de datos relacional desarrollada en MySQL. A continuación, se detalla la estructura de las tablas y algunos datos de ejemplo insertados para fines de pruebas y desarrollo.
+El sistema utiliza una base de datos relacional desarrollada en MySQL.
+A continuación, se detalla la estructura de las tablas y algunos datos de ejemplo insertados para fines de pruebas y desarrollo.
+
 1.	Iniciar el servicio MySQL desde XAMPP.
 2.	Crear una base de datos llamada veterinaria
 
 CREATE DATABASE IF NOT EXISTS veterinaria;
 USE veterinaria;
+
 
 CREATE TABLE cliente (
 id_cliente INT AUTO_INCREMENT PRIMARY KEY,
